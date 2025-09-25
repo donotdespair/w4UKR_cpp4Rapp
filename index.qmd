@@ -126,7 +126,7 @@ yel = "#FFD800"
 
 ## <span style='color: #FFD800;'>Preparation</span> {background-color="#0056B9"}
 
-* Follow the instructions from Section 1.3. by [Eddelbuettel & François (2023)](https://cran.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf). 
+* Follow the instructions from Section 1.3. by [Eddelbuettel & François (2023)](https://cran.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf)
 
 $$ $$
 
@@ -476,3 +476,8 @@ $$ $$
 
 ### <span style='color: #FFD800;'>Nice!</span>
 
+
+
+##  {background-color="#0056B9"}
+
+![](social.png){.absolute top=10 right=10 width="1000"}
