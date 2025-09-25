@@ -56,6 +56,11 @@ yel = "#FFD800"
 ![](bsvarSIGNs.png){.absolute top=350 right=175 width="250"}
 
 
+
+
+
+
+
 # <span style='color: #FFD800;'>Motivation</span> {background-color="#0056B9"}
 
 ## <span style='color: #FFD800;'>Motivation</span> {background-color="#0056B9"}
@@ -97,10 +102,10 @@ yel = "#FFD800"
 
 * Lecture slides
 * **C++** scripts:
-  * [`nicetry.cpp`](https://github.com/numbats/arp/blob/main/week12/nicetry.cpp)
-  * [`nicelr.cpp`](https://github.com/numbats/arp/blob/main/week12/nicelr.cpp)
-  * [`nicelist.cpp`](https://github.com/numbats/arp/blob/main/week12/nicelist.cpp)
-  * [`nicerig2.cpp`](https://github.com/numbats/arp/blob/main/week12/nicerig2.cpp)
+  * [`nicetry.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicetry.cpp)
+  * [`nicelr.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicelr.cpp)
+  * [`nicelist.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicelist.cpp)
+  * [`nicerig2.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicerig2.cpp)
 
 ## <span style='color: #FFD800;'>Learning resources</span> {background-color="#0056B9"}
 
@@ -117,7 +122,30 @@ yel = "#FFD800"
 
 
 
-# The first steps with Rcpp
+
+
+## <span style='color: #FFD800;'>Preparation</span> {background-color="#0056B9"}
+
+* Follow the instructions from Section 1.3. by [Eddelbuettel & François (2023)](https://cran.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf). 
+
+$$ $$
+
+* Install a **C++** compiler:
+  * Windows: install [**RTools**](https://cran.r-project.org/bin/windows/Rtools/)
+  * macOS: install [**Xcode Command Line Tools**](https://www.freecodecamp.org/news/install-xcode-command-line-tools/) and [**gfortran**](https://www.scivision.dev/homebrew-install-fortran-compiler/)
+  * Linux: install the standard development packages.
+* Install the **Rcpp** and **RcppArmadillo** packages by running in **R**: 
+```{r}
+#| eval: false
+
+install.packages(Rcpp); library(Rcpp)
+install.packages(RcppArmadillo); library(RcppArmadillo)
+```
+* Check if the installation is successful. Source the file [`nicetry.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/preparation/nicetry.cpp) in RStudio by executing: `Rcpp::sourceCpp("nicetry.cpp")`. If you see a matrix with values 1, 2, and 3 in R, you're good to go for the workshop.
+
+
+
+# <span style='color: #FFD800;'>The first steps with Rcpp</span> {background-color="#0056B9"}
 
 ## <span style='color: #FFD800;'>The first steps with Rcpp</span> {background-color="#0056B9"}
 
@@ -280,7 +308,14 @@ Hint: use functions `rnorm` and `cumsum`.
 :::
 
 
-# Some stats with RcppArmadillo
+
+
+
+
+
+
+
+# <span style='color: #FFD800;'>Some stats with RcppArmadillo</span> {background-color="#0056B9"}
 
 ## <span style='color: #FFD800;'>Some stats with RcppArmadillo</span> {background-color="#0056B9"}
 
@@ -377,17 +412,17 @@ nicelr(y, x)
 ## <span style='color: #FFD800;'>Some stats with RcppArmadillo: linear regression</span> {background-color="#0056B9"}
 
 ::: {.callout-caution title="Your turn!"}
-Extend the `nicelr` function to return the covariance:
+Extend the `nicelr` function to return the error term variance:
 $$
-\widehat{Cov}\left[\hat\beta\right] = \hat\sigma^2 \left(X'X\right)^{-1}, \text{ where } \hat\sigma^2 = \frac{1}{T} \left( Y - \hat\beta X \right)'\left( Y - \hat\beta X \right)
+\hat\sigma^2 = \frac{1}{T} \left( Y - \hat\beta X \right)'\left( Y - \hat\beta X \right)
 $$
 
 * don't adjust the arguments
-* return `beta_hat` and `cov_beta_hat` in a list
+* return `beta_hat` and `sigma2_hat` in a list
 
 Get some help [HERE](http://arma.sourceforge.net/docs.html).
 
-Hint: use functions `inv_sympd` and `.n_elem`.
+Hint: use functions `as_scalar()`, `.t()` and `.n_elem`.
 :::
 
 
@@ -399,15 +434,33 @@ Have a look at my article on [*Simulation Smoother using RcppArmadillo*](https:/
 :::
 
 
+
+
+
+
+# <span style='color: #FFD800;'>What's next?</span> {background-color="#0056B9"}
+
 ## <span style='color: #FFD800;'>What's next?</span> {background-color="#0056B9"}
 
 * Keep programming in **C++** for **R** applications
+* Revise solutions to our exercises:
+  * [`nicex1.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicex1.cpp)
+  * [`nicex2.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicex2.cpp)
+  * [`nicex3.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicex3.cpp)
+  * [`nicex4.cpp`](https://github.com/donotdespair/w4UKR_cpp4Rapp/blob/master/nicex4.cpp)
 * Reach out for help
 * Read the documentation of the **C++** libraries you're about to use
 * Study the **Rcpp** family of packages
 * Study **openMP** to facilitate parallel computing
 * Rewrite the **R** function that is the bottleneck in your code in **C++**
-* Write an **R** package with **C++** code using **Rcpp** and **RcppArmadillo**
+* Write an **R** package with **C++** code using **Rcpp** and **RcppArmadillo** [[15steps2nicepackage]](https://github.com/donotdespair/15steps2nicepackage)
+
+
+
+
+
+
+
 
 ## <span style='color: #FFD800;'>What's next?</span> {background-color="#0056B9"}
 
