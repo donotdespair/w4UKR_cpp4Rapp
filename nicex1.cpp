@@ -2,12 +2,12 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericMatrix nicetry (int n) {
-  NumericVector i(n, 1.0);
+NumericMatrix nicetry (int T) {
+  NumericVector i(T, 1.0);
   NumericVector t = cumsum(i);
-  NumericVector tt = t - mean(t);
-  NumericVector tt2 = pow(tt, 2);
-  NumericMatrix out = cbind(i, tt, tt2);
+  t = t - mean(t);
+  NumericVector t2 = pow(t, 2);
+  NumericMatrix out = cbind(i, t, t2);
   return out;
 }
 

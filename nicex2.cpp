@@ -8,5 +8,6 @@ NumericVector nicetry (int n) {
 }
 
 /*** R
-nicetry(4)
+set.seed(1)
+plot.ts(nicetry(100))
 */
